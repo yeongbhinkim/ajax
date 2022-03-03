@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        const payload = {
+            name: "모니터",
+            brand: "삼성",
+            desc: "삼성모니터40인치",
+            price: 400000
+        };
+
+        console.log(payload);
+
+        //상품등록
+        fetch('"Access-Control-Allow-Origin":http://192.168.0.8:8080/api/items', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+        })
+    
+        
+
+        console.log('after fetch');
+
+    </script> -->
+
+<script>
+
+    const payload = {
+                      name: "모니터",
+                      brand: "삼성",
+                      desc: "삼성모니터40인치",
+                      price: 400000
+    };
+
+    console.log(payload);
+
+    //상품등록
+    fetch('"Access-Control":http://192.168.0.8:8080/api/items',{
+      method:'POST',
+      headers: { 'Content-Type':'application/json'},
+      body: JSON.stringify(payload)  // js객체 => json포맷 문자열 변환
+    }).then(res=>res.json())         // json포맷 문자열 => js객체 변환
+      .then(res=>{console.log(res)})
+      .catch(err=>{console.error('Err:',err)});
+    console.log('after fetch');
+
+  </script>
+</body>
+
+</html>
